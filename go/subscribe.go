@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"time"
 
 	eosws "github.com/dfuse-io/eosws-go"
 )
@@ -14,9 +13,9 @@ var origin = "https://origin.example.io"
 
 func main() {
 
-	apiKey := os.Getenv("EOSWS_API_KEY")
+	apiKey := os.Getenv("DFUSE_API_KEY")
 	if apiKey == "" {
-		log.Fatalf("please set your API key to environment variable EOSWS_API_KEY")
+		log.Fatalf("please set your API key to environment variable DFUSE_API_KEY")
 	}
 
 	jwt, _, err := eosws.Auth(apiKey)
@@ -64,8 +63,9 @@ func main() {
 		}
 	}()
 
-	fmt.Println("Sleeping for 8 * time.Second")
-	time.Sleep(8 * time.Second)
+	sigs := make(chan os.Signal, 1)
+	fmt.Println("Waiting for signal")
+	<-sigs
 }
 
 func errorCheck(prefix string, err error) {
