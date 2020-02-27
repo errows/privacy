@@ -1,0 +1,12 @@
+**/.vscode
+**/node_modules/
+nodejs/telos-testnet.key
+contracts/.vscode
+contracts/messenger/messenger
+contracts/messenger/messenger_project-prefix
+contracts/messenger/CMakeFiles
+**/CMakeCache.txt
+**/cmake_install.cmake
+**/Makefile
+contracts/messenger/build
+**/*.private
